@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+<rect width="560" height="320" rx="12" fill="#fff" stroke="#c8d3cd"/>
+<text x="280" y="28" text-anchor="middle" font-weight="700" fill="#1f2937">Ventas por sucursal</text>
+<g stroke="#e4e9e6"><path d="M70 60h450M70 110h450M70 160h450M70 210h450M70 260h450"/></g>
+<g fill="#6b7280" text-anchor="end" font-size="11"><text x="62" y="264">0</text><text x="62" y="214">2000</text><text x="62" y="164">4000</text><text x="62" y="114">6000</text></g>
+<rect x="100" y="100" width="70" height="160" fill="#217346"/><rect x="210" y="130" width="70" height="130" fill="#217346"/><rect x="320" y="142" width="70" height="118" fill="#217346"/><rect x="430" y="115" width="70" height="145" fill="#217346"/>
+<g fill="#1f2937" text-anchor="middle"><text x="135" y="282">Centro</text><text x="245" y="282">Norte</text><text x="355" y="282">Sur</text><text x="465" y="282">Este</text></g>
+<g fill="#185c37" text-anchor="middle" font-weight="600" font-size="12"><text x="135" y="94">5200</text><text x="245" y="124">4100</text><text x="355" y="136">3800</text><text x="465" y="109">4700</text></g>
+<text x="280" y="306" text-anchor="middle" fill="#6b7280" font-size="11">Eje horizontal: categorías · Eje vertical: valores</text>
+</svg>

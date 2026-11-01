@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#6b7280"/></marker></defs>
+<rect width="700" height="260" rx="12" fill="#f5f9f7" stroke="#c8d3cd"/>
+<text x="24" y="34" font-weight="700" font-size="15" fill="#185c37">Un libro de Excel (Contabilidad2026.xlsx)</text>
+<rect x="24" y="50" width="652" height="168" rx="8" fill="#fff" stroke="#217346" stroke-width="2"/>
+<rect x="50" y="70" width="170" height="110" rx="6" fill="#e9f5ee" stroke="#217346"/><text x="135" y="130" text-anchor="middle" font-weight="700" fill="#185c37">Hoja «Enero»</text><text x="135" y="150" text-anchor="middle" fill="#4b5563" font-size="11">filas · columnas · celdas</text>
+<rect x="250" y="70" width="170" height="110" rx="6" fill="#e9f5ee" stroke="#217346"/><text x="335" y="130" text-anchor="middle" font-weight="700" fill="#185c37">Hoja «Febrero»</text><text x="335" y="150" text-anchor="middle" fill="#4b5563" font-size="11">filas · columnas · celdas</text>
+<rect x="450" y="70" width="200" height="110" rx="6" fill="#fff7e0" stroke="#d99a06"/><text x="550" y="122" text-anchor="middle" font-weight="700" fill="#92400e">Hoja «Resumen»</text><text x="550" y="146" text-anchor="middle" fill="#4b5563" font-size="11">=Enero!B10+Febrero!B10</text>
+<path d="M222 125h26M422 125h26" stroke="#6b7280" stroke-width="2" marker-end="url(#a)"/>
+<text x="24" y="244" fill="#4b5563" font-size="12">El libro es el archivo; cada hoja es una cuadrícula independiente que puede referenciar a las demás.</text>
+</svg>

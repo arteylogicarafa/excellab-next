@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+<rect width="560" height="300" rx="12" fill="#fff" stroke="#c8d3cd"/>
+<text x="280" y="28" text-anchor="middle" font-weight="700" fill="#1f2937">Distribución de gastos del mes</text>
+<g transform="translate(180 165)">
+<circle r="100" fill="#217346"/>
+<path d="M0 0 L0 -100 A100 100 0 0 1 80.1 -59.9 Z" fill="#cbd5d0"/>
+<path d="M0 0 L80.1 -59.9 A100 100 0 0 1 69.4 71.9 Z" fill="#f59e0b"/>
+<path d="M0 0 L69.4 71.9 A100 100 0 0 1 -66.7 74.5 Z" fill="#16a34a"/>
+</g>
+<g fill="#1f2937"><rect x="340" y="90" width="14" height="14" fill="#217346"/><text x="362" y="102">Vivienda · 53 %</text>
+<rect x="340" y="122" width="14" height="14" fill="#16a34a"/><text x="362" y="134">Comida · 33 %</text>
+<rect x="340" y="154" width="14" height="14" fill="#f59e0b"/><text x="362" y="166">Transporte · 9 %</text>
+<rect x="340" y="186" width="14" height="14" fill="#cbd5d0"/><text x="362" y="198">Ocio · 5 %</text></g>
+<text x="340" y="240" fill="#6b7280" font-size="11">Cada porción es parte de un total (100 %).</text>
+</svg>
