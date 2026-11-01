@@ -20,10 +20,15 @@ const SPLASH_JS = `(function () {
   if (!s) return;
   if (/(^|;\\s*)excellab_splash=/.test(document.cookie)) { s.remove(); return; }
   document.cookie = 'excellab_splash=1; path=/; max-age=2592000';
-  var t0 = Date.now();
   function done() { s.classList.add('hide'); setTimeout(function () { s.remove(); }, 700); }
-  window.addEventListener('load', function () { setTimeout(done, Math.max(0, 1600 - (Date.now() - t0))); });
-  setTimeout(done, 5000);
+  // No espera a que carguen TODOS los recursos (fuentes, gráficos): en redes
+  // lentas eso dejaba el logo varios segundos. Igual animación, antes.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { setTimeout(done, 900); });
+  } else {
+    setTimeout(done, 900);
+  }
+  setTimeout(done, 3000);
 })();`;
 
 export default function Splash() {
