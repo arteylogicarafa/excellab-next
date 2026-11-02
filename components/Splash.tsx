@@ -1,7 +1,14 @@
-import { logoUrl } from '@/lib/helpers';
+'use client';
 
-// Pantalla de carga con el logo: se muestra una vez al iniciar la sesión del navegador.
-// (Réplica de app/Views/components/loader.php; la cookie la decide el propio cliente.)
+import { useEffect, useState } from 'react';
+
+// Pantalla de carga con el logo (réplica de components/loader.php del PHP).
+// Es un componente cliente: React monta y desmonta el nodo DESPUÉS de la
+// hidratación (borrarlo con JavaScript puro, como hacía el PHP, provocaba el
+// error de hidratación #418 de React y dejaba el logo clavado en pantalla).
+// El valor inicial es idéntico en servidor y cliente (sin diferencias de render).
+
+const LOGO_PATH = '/assets/img/logo.png'; // existe en el repositorio (logo_url() del PHP)
 
 const SPLASH_CSS = `#splash{position:fixed;inset:0;z-index:3000;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;transition:opacity .5s ease,visibility .5s}
 #splash.hide{opacity:0;visibility:hidden}
@@ -15,45 +22,37 @@ const SPLASH_CSS = `#splash{position:fixed;inset:0;z-index:3000;background:#fff;
 @keyframes splashBar{0%{margin-left:-40%}100%{margin-left:100%}}
 @media (prefers-reduced-motion:reduce){#splash *{animation:none!important}}`;
 
-const SPLASH_JS = `(function () {
-  var s = document.getElementById('splash');
-  if (!s) return;
-  if (/(^|;\\s*)excellab_splash=/.test(document.cookie)) { s.remove(); return; }
-  document.cookie = 'excellab_splash=1; path=/; max-age=2592000';
-  function done() { s.classList.add('hide'); setTimeout(function () { s.remove(); }, 700); }
-  // No espera a que carguen TODOS los recursos (fuentes, gráficos): en redes
-  // lentas eso dejaba el logo varios segundos. Igual animación, antes.
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { setTimeout(done, 900); });
-  } else {
-    setTimeout(done, 900);
-  }
-  setTimeout(done, 3000);
-})();`;
-
 export default function Splash() {
-  const logo = logoUrl();
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    // Solo la primera visita del navegador (cookie excellab_splash).
+    if (/(^|;\s*)excellab_splash=/.test(document.cookie)) {
+      setVisible(false);
+      return;
+    }
+    document.cookie = 'excellab_splash=1; path=/; max-age=2592000';
+    const hide = () => setVisible(false);
+    const t1 = setTimeout(hide, 900);
+    const t2 = setTimeout(hide, 3000);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, []);
+
+  if (!visible) return null;
 
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: SPLASH_CSS }} />
       <div id="splash" role="status" aria-label="Cargando ExcelLab">
-        {logo ? (
-          <img src={logo} alt="ExcelLab by Rafa Guerrero" />
-        ) : (
-          <div className="fallback">
-            <span>
-              <i className="bi bi-grid-3x3-gap-fill" />
-            </span>{' '}
-            ExcelLab
-          </div>
-        )}
+        <img src={LOGO_PATH} alt="ExcelLab by Rafa Guerrero" />
         <div className="bar">
           <i />
         </div>
         <small>Cargando…</small>
       </div>
-      <script dangerouslySetInnerHTML={{ __html: SPLASH_JS }} />
     </>
   );
 }

@@ -110,7 +110,7 @@ export default async function RetoPage({ params }: { params: Promise<{ id: strin
         <div className="col-lg-4">
           <div className="card-x p-3 mb-3 text-center">
             <div className="text-muted small">Tiempo en este reto</div>
-            <div className="timer" id="challengeTimer">
+            <div className="timer" id="challengeTimer" suppressHydrationWarning>
               00:00
             </div>
           </div>

@@ -52,7 +52,7 @@ export default async function TakePage({ params }: { params: Promise<{ id: strin
           <div className="col-lg-3">
             <div className="card-x p-3 timer-box text-center">
               <div className="text-muted small">Tiempo restante</div>
-              <div className="timer" id="examTimer" data-remaining={remaining}>
+              <div className="timer" id="examTimer" data-remaining={remaining} suppressHydrationWarning>
                 --:--
               </div>
               <div className="small text-muted my-2">
